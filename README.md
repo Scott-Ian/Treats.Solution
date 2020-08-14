@@ -4,7 +4,7 @@
 
 ## <h2 align = "center"> About
 
-<p align = "center"> This application manages the relationship between flavors and treats. It further incorporates user accounts and authorization, only allowing creating, updating, and deleteing of entries to loggedin users. 
+<p align = "center"> This application manages the relationship between flavors and treats. It further incorporates user accounts and authorization, only allowing creating, updating, and deleteing of entries to logged in users. 
 
 ## **✅REQUIREMENTS**
 * Install [Git v2.62.2+](https://git-scm.com/downloads/)
@@ -39,7 +39,7 @@ __
 
 ## Known Bugs
 
-_Currently there are no known bugs_
+_Currently there are no known bugs._
 
 ## Support and contact details
 
