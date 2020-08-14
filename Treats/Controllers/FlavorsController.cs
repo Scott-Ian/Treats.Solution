@@ -59,7 +59,9 @@ namespace Treats.Controllers
           flavors = flavors.OrderBy(flavor => flavor.Name);
           break;
       }
-      return View(engineers.ToList());
+      return View(flavors.ToList());
     }
+
+    
   }
 }
