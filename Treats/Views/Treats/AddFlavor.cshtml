@@ -1,0 +1,17 @@
+@{
+  Layout ="_Layout";
+}
+
+@model Treats.Models.Treat
+
+<h1>Add a Flavor to treat:  @Html.DisplayFor(model => model.Name)</h1>
+<hr/>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TreatId)
+  <label>Assign a flavor to this treat:</label>
+  @Html.DropDownList("FlavorId")
+
+  <input type="submit" value="Save" />
+}
