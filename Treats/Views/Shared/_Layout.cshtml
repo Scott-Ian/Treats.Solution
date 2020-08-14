@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    @* <link rel="stylesheet" href="~/css/flatly.css"> *@
+    <link rel="stylesheet" href="~/css/styles.css">
+</head>
+<body>
+  @* navbar created using bootstrap documentation - need JS plugin to expand collapsed navbar *@
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a>@Html.ActionLink("Home", "Index", "Home")</a></li>
+          <li><a>@Html.ActionLink("Treats", "Index", "Treats")</a></li>
+          <li><a>@Html.ActionLink("Flavors", "Index", "Flavorss")</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  
+  <div class="container">
+    @RenderBody()    
+  </div>
+</body>
+</html>
