@@ -15,7 +15,7 @@
 
 <button class="btn bton-alert">@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId })</button>
 <button class ="btn btin-info">@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId })</button>
-<button>@Html.ActionLink("Add Treat Association", "AddMachine", new { id = Model.FlavorId })</button>
+<button>@Html.ActionLink("Add Treat Association", "AddTreat", new { id = Model.FlavorId })</button>
 
 @if(@Model.Treats.Count == 0)
 {
@@ -30,7 +30,7 @@ else
     @foreach(var join in Model.Treats)
     {
       <li>@join.Treat.Name</li>
-      @using (Html.BeginForm("DeleteTreat", "Engineers"))
+      @using (Html.BeginForm("DeleteTreat", "Flavors"))
       {
         @Html.Hidden("joinId", @join.FlavorTreat)
         <input type="submit" value="Delete"/>
