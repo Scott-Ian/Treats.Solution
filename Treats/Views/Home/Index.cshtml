@@ -1,0 +1,104 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Treats.Models;
+@model List<Treats.Models.Flavor>
+
+<h1>Flavors:</h1>
+<hr/>
+
+@if (@Model.Count == 0)
+{
+  <h5>There are no Flavors in the system</h5>
+  <h5>@Html.ActionLink("Would You Like to Add a New Flavor?", "Create", "Flavors")</h5>
+}
+else
+{
+  @using (Html.BeginForm())
+  {
+    <p>Find By name: @Html.TextBox("FlavorSearchString")
+      <input type="submit" value="Search" /></p>
+  }
+  
+  <table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Id", "Index", new { flavorSortOrder = ViewBag.FlavorIdSortParam })
+        </th>
+        <th>
+          @Html.ActionLink("Name", "Index", new { flavorSortOrder = ViewBag.FlavorNameSortParam })
+        </th>
+        <th>
+            @Html.ActionLink("Description", "Index", new { flavorSortOrder = ViewBag.FlavorDescriptionSortParam })
+        </th>
+    </tr>
+    
+  @foreach (Flavor flavor in @Model)
+  {
+    <tr>
+      <td>
+        @flavor.FlavorId
+      </td>
+      <td>
+        @Html.ActionLink($"{flavor.Name}", "Details", "Flavors", new { id = flavor.FlavorId})
+      </td>
+      <td>
+        @flavor.Description
+      </td>
+    </tr>
+  }
+  </table>
+}
+
+<h1>Treats:</h1>
+<hr/>
+
+@if (ViewBag.Treats.Count == 0)
+{
+  <h5>There are no Treats in the system</h5>
+  <h5>@Html.ActionLink("Would You Like to Add a New Treat?", "Create", "Treats")</h5>
+}
+else
+{
+  @using (Html.BeginForm())
+  {
+    <p>Find By name: @Html.TextBox("TreatSearchString")
+      <input type="submit" value="Search" /></p>
+  }
+  
+  <table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Id", "Index", new { treatSortOrder = ViewBag.TreatIdSortParam })
+        </th>
+        <th>
+          @Html.ActionLink("Name", "Index", new { treatSortOrder = ViewBag.TreatNameSortParam })
+        </th>
+        <th>
+          @Html.ActionLink("Price", "Price", new { treatSortOrder = ViewBag.TreatPriceSortParam })
+        </th>
+        <th>
+            @Html.ActionLink("Description", "Index", new { treatSortOrder = ViewBag.TreatDescriptionSortParam })
+        </th>
+    </tr>
+    
+  @foreach (Treat treat in ViewBag.Treats)
+  {
+    <tr>
+      <td>
+        @treat.TreatId
+      </td>
+      <td>
+        @Html.ActionLink($"{treat.Name}", "Details", "Treats", new { id = treat.TreatId})
+      </td>
+      <td>
+        @treat.Price
+      </td>
+      <td>
+        @treat.Description
+      </td>
+    </tr>
+  }
+  </table>
+}
