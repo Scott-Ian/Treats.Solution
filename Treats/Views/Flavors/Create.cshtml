@@ -10,10 +10,10 @@
 @using (Html.BeginForm())
 {
   @Html.Label("Name", "Name")<br>
-  @Html.TextBoxFor(model => model.Name)<br>
+  @Html.TextBoxFor(model => model.Name, new { @class="form-control"})<br>
 
   @Html.Label("Description", "Description")<br>
-  @Html.TextAreaFor(model => model.Description)<br>
+  @Html.TextAreaFor(model => model.Description, new { @class="form-control"})<br>
 
-  <input type="submit" value="Add New Flavor" /><br>
+  <button type="submit" class="btn btn-default">Add New Flavor</button><br>
 }

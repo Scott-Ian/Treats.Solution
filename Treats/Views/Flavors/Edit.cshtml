@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Treats.Models;
+@model Treats.Models.Flavor;
+
+<h4>Edit this Flavor: @Html.DisplayFor(model => model.Name)</h4>
+<hr/>
+
+<h3>Flavor: @Html.DisplayFor(model => model.Name)</h3>
+<h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
+<h3>Id: @Html.DisplayFor(model => model.FlavorId)</h3>
+<hr/>
+
+@using (Html.BeginForm())
+{
+  @Html.Label("Name", "Name")<br>
+  @Html.EditorFor(model => model.Name, new { @class="form-control"})<br>
+
+  @Html.Label("Description", "Description")<br>
+  @Html.EditorFor(model => model.Description, new { @class="form-control"})<br>
+  
+  <button type="submit" class="btn btn-default">Save Changes</button>
+}
