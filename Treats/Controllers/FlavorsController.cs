@@ -23,6 +23,43 @@ namespace Treats.Controllers
       _db = db;
     }
 
-    
+    public ActionResult Index(string sortOrder, string searchString)
+    {
+      ViewBag.NameSortParam = string.IsNullOrEmpty(sortOrder) ?"last_desc" : "";
+      ViewBag.IdSortParam = sortOrder == "Id" ? "id_desc" : "Id";
+      ViewBag.DescriptionSortParam = sortOrder == "Descr" ? "descr_desc" : "Descr";
+
+      IQueryable<Flavor> flavors = _db.Flavors
+        .Include(flavor => flavor.Treats)
+        .ThenInclude(join => join.Treat);
+
+      if (!string.IsNullOrEmpty(searchString))
+      {
+        flavors = flavors.Where(flavor => flavor.Name.Contains(searchString));
+      }
+
+      switch (sortOrder)
+      {
+        case "last_desc":
+          flavors = flavors.OrderByDescending(flavor => flavor.Name);
+          break;
+        case "Id":
+          flavors = flavors.OrderBy(flavor => flavor.FlavorId);
+          break;
+        case "id_desc":
+          flavors = flavors.OrderByDescending(flavor => flavor.FlavorId);
+          break;
+        case "Descr":
+          flavors = flavors.OrderBy(flavor => flavor.Description);
+          break;
+        case "descr_desc":
+          flavors = flavors.OrderByDescending(flavor => flavor.Description);
+          break;
+        default:
+          flavors = flavors.OrderBy(flavor => flavor.Name);
+          break;
+      }
+      return View(engineers.ToList());
+    }
   }
 }
