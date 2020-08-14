@@ -16,7 +16,7 @@ namespace Treats.Controllers
     private readonly TreatsContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
 
-    public FlavorsController(UserManager<Applicationuser> userManager, TreatsContext db)
+    public HomeController (UserManager<ApplicationUser> userManager, TreatsContext db)
     {
       _userManager = userManager;
       _db = db;
@@ -33,12 +33,12 @@ namespace Treats.Controllers
         .Include(flavor => flavor.Treats)
         .ThenInclude(join => join.Treat);
 
-      if (!string.IsNullOrEmpty(flavorsearchString))
+      if (!string.IsNullOrEmpty(flavorSearchString))
       {
-        flavors = flavors.Where(flavor => flavor.Name.Contains(searchString));
+        flavors = flavors.Where(flavor => flavor.Name.Contains(flavorSearchString));
       }
 
-      switch (flavorsortOrder)
+      switch (flavorSortOrder)
       {
         case "last_desc":
           flavors = flavors.OrderByDescending(flavor => flavor.Name);
@@ -71,10 +71,10 @@ namespace Treats.Controllers
 
       if (!string.IsNullOrEmpty(treatSearchString))
       {
-        treats = treats.Where(treat => treat.Name.Contains(searchString));
+        treats = treats.Where(treat => treat.Name.Contains(treatSearchString));
       }
 
-      switch (sortOrder)
+      switch (treatSortOrder)
       {
         case "last_desc":
           treats = treats.OrderByDescending(treat => treat.Name);

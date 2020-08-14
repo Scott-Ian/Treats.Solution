@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Treats.Models
 {
   public class Flavor

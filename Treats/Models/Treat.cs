@@ -1,8 +1,10 @@
+using System.Collections.Generic;
+
 namespace Treats.Models
 {
-  public class Treats
+  public class Treat
   {
-    public Treats ()
+    public Treat ()
     {
       this.Flavors = new HashSet<FlavorTreat>();
     }

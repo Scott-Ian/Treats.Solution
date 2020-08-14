@@ -6,6 +6,6 @@ namespace Treats.Models
     public int FlavorId { get; set; }
     public int TreatId { get; set; }
     public Flavor Flavor { get; set; }
-    public Treats Treat { get; set; }
+    public Treat Treat { get; set; }
   }
 }

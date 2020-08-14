@@ -8,7 +8,7 @@ namespace Treats.Models
     public virtual DbSet<Flavor> Flavors { get; set; }
     public DbSet<Treat> Treats { get; set; }
     public DbSet<FlavorTreat> FlavorTreat {get; set; }
-    public DbSet<CopyApplicationUser> CopyApplicationUser { get; set; }
+    public DbSet<ApplicationUser> CopyApplicationUser { get; set; }
 
     public TreatsContext(DbContextOptions options) : base(options) { }
   }

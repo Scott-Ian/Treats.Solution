@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 
-@model Treats.Models.Flavor
+@model Treats.Models.Treat
 
 <h1>Create a new Treat:</h1>
 <hr/>
@@ -12,7 +12,7 @@
   @Html.Label("Name", "Name")<br>
   @Html.TextBoxFor(model => model.Name, new { @class="form-control"})<br>
 
-  @Html.Lavel("Price", "Price")<br>
+  @Html.Label("Price", "Price")<br>
   @Html.TextBoxFor(model => model.Price, new { @type ="number", @class="form-control"})
 
   @Html.Label("Description", "Description")<br>

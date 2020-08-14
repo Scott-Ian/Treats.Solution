@@ -17,7 +17,7 @@ namespace Treats.Controllers
     private readonly TreatsContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
 
-    public TreatsController(UserManager<Applicationuser> userManager, TreatsContext db)
+    public TreatsController(UserManager<ApplicationUser> userManager, TreatsContext db)
     {
       _userManager = userManager;
       _db = db;
@@ -75,7 +75,7 @@ namespace Treats.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Treat treat)
+    public ActionResult Create (Treat treat)
     {
       _db.Treats.Add(treat);
       _db.SaveChanges();
@@ -88,7 +88,7 @@ namespace Treats.Controllers
         .Include(treat => treat.Flavors)
         .ThenInclude(join => join.Flavor)
         .FirstOrDefault(treat => treat.TreatId == id);
-      return ViewModels(thisTreat);
+      return View(thisTreat);
     }
 
     public ActionResult Edit (int id)
@@ -109,7 +109,7 @@ namespace Treats.Controllers
     {
       var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
       ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Name");
-      return ViewModels(thisTreat);
+      return View(thisTreat);
     }
 
     [HttpPost]
@@ -126,14 +126,14 @@ namespace Treats.Controllers
     public ActionResult Delete(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
-      return View(thisFlavor);
+      return View(thisTreat);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed (int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
-      _db.Flavors.Remove(thisTreat);
+      _db.Treats.Remove(thisTreat);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }

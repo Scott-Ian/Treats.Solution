@@ -32,7 +32,7 @@ else
       <li>@join.Treat.Name</li>
       @using (Html.BeginForm("DeleteTreat", "Flavors"))
       {
-        @Html.Hidden("joinId", @join.FlavorTreat)
+        @Html.Hidden("joinId", @join.FlavorTreatId)
         <input type="submit" value="Delete"/>
       }
     }

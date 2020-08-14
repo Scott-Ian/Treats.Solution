@@ -17,7 +17,7 @@ namespace Treats.Controllers
     private readonly TreatsContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
 
-    public FlavorsController(UserManager<Applicationuser> userManager, TreatsContext db)
+    public FlavorsController(UserManager<ApplicationUser> userManager, TreatsContext db)
     {
       _userManager = userManager;
       _db = db;
@@ -81,7 +81,7 @@ namespace Treats.Controllers
         .Include(flavor => flavor.Treats)
         .ThenInclude(join => join.Treat)
         .FirstOrDefault(flavor => flavor.FlavorId == id);
-      return ViewModels(thisFlavor);
+      return View(thisFlavor);
     }
 
     public ActionResult Edit (int id)
@@ -102,7 +102,7 @@ namespace Treats.Controllers
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
       ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Name");
-      return ViewModels(thisFlavor);
+      return View(thisFlavor);
     }
 
     [HttpPost]
