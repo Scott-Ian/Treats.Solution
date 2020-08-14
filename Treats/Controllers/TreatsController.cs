@@ -138,5 +138,14 @@ namespace Treats.Controllers
       return RedirectToAction("Index");
     }
 
+    [HttpPost]
+    public ActionResult DeleteFlavor(int JoinId)
+    {
+      var joinEntry = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == JoinId);
+      _db.FlavorTreat.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
   }
 }
