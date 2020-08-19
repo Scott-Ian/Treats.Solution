@@ -40,7 +40,7 @@ __
 
 ## Known Bugs
 
-_Currently there are no known bugs._
+_The search function for both tables within the Home Index view is non-functioning. I think I'm just missing a small typo, or have an incorrect reference. Not really sure why this isn't working currently._
 
 ## Support and contact details
 
