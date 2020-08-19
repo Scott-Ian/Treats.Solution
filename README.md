@@ -16,6 +16,7 @@
 * to clone this content, copy the url provided by the 'clone or download' button in GitHub
 * in command line use the command 'git clone (GitHub url)'
 * open the program in a code editor
+* Ensure that MySQL is running, and update id and password in appsettings.json to reflect your local id and password configuration.
 * In the project folder (Treats) enter the following terminal commands:
   1. dotnet restore
   2. dotnet ef database update
