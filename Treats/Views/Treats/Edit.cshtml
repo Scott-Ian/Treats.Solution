@@ -16,6 +16,8 @@
 
 @using (Html.BeginForm())
 {
+  @Html.HiddenFor(model => model.TreatId)
+
   @Html.Label("Name", "Name")<br>
   @Html.EditorFor(model => model.Name, new { @class="form-control"})<br>
 
